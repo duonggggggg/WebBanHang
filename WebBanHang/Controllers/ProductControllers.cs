@@ -22,10 +22,21 @@ namespace WebBanHang.Controllers
             _hosting = hosting;
         }
         //Hiển thị danh sách sản phẩm
-        public IActionResult Index()
+        public IActionResult Index(int ? page)
         {
+            var pageIndex = (int)(page != null ? page : 1);
+            var pageSize = 5;
             var productList = _db.Products.Include(x => x.Category).ToList();
-            return View(productList);
+            //Thống kê số trang
+            //var pageSum =(int) Math.Ceiling((Decimal)productList.Count / pagesize);
+            var pageSum = productList.Count() / pageSize + (productList.Count() % pageSize > 0 ? 1 : 0);
+            // Truyền dữ liệu cho View
+            ViewBag.pageSum = pageSum;
+            ViewBag.pageIndex = pageIndex;
+
+            // return View(productList.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList());
+            return View("ShowAll");
+
         }
         //Hiển thị form thêm sản phẩm mới
         public IActionResult Add()
@@ -38,6 +49,7 @@ namespace WebBanHang.Controllers
             });
             return View();
         }
+
         //Xử lý thêm sản phẩm
         [HttpPost]
         public IActionResult Add(Product product, IFormFile ImageUrl)
@@ -62,6 +74,7 @@ namespace WebBanHang.Controllers
             });
             return View();
         }
+        
         //Hiển thị form cập nhật sản phẩm
         public IActionResult Update(int id)
         {
@@ -171,5 +184,13 @@ namespace WebBanHang.Controllers
             //chuyen den action index
             return RedirectToAction("Index");
         }
+
+        #region// Call API
+        public IActionResult GetAll()
+        {
+            var dsSanPham = _db.Products.Include(x => x .Category).ToList();
+            return Json(dsSanPham);
+        }
+        #endregion
     }
 }

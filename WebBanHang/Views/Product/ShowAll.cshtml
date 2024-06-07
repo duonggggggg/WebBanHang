@@ -1,0 +1,55 @@
+﻿<h2> List Product</h2>
+
+<table id="myTable" class="display">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "/Product/GetAll",
+                success: function (data) {
+                    $('#myTable').DataTable({
+                        data: data,
+                        columns: [
+                            { data: 'name' },
+                            {
+                                data: 'price', render: function (data) {
+                                    return data + "$";
+                                }
+                            },
+                            { data: 'category.name' },
+                            {
+                                data: 'imageUrl', render: function (data) {
+                                    if (data != null)
+                                        return '<img src="' + data + '" style="width:100px" >';
+                                    else
+                                        return '';
+                                }
+                            },
+                            {
+                                data: 'id', render: function (data) {
+                                    let link = '<a href="Product/Update/' + data + '" class="btn btn-success"> <i class="bi bi-pencil-square"></i>Sửa</a>';
+                                    link += '<a href="Product/Delete/' + data + '" class="btn btn-danger"> <i class="bi bi-trash"></i>Xóa</a>'
+                                    return link;
+                                }
+                            }
+                        ]
+                    });
+                }
+            });
+        });
+    </script>
+}
