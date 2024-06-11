@@ -19,7 +19,7 @@
     <script>
         $(document).ready(function () {
             $.ajax({
-                url: "/Product/GetAll",
+                url: "/Admin/Product/GetAll",
                 success: function (data) {
                     $('#myTable').DataTable({
                         data: data,
