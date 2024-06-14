@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.34601.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebBanHang", "WebBanHang\WebBanHang.csproj", "{EF856751-18A2-4236-9ADD-8872B4463434}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCart", "TestCart\TestCart.csproj", "{961AC982-9F2F-4357-803C-7B7F98F8D5F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EF856751-18A2-4236-9ADD-8872B4463434}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF856751-18A2-4236-9ADD-8872B4463434}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF856751-18A2-4236-9ADD-8872B4463434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{961AC982-9F2F-4357-803C-7B7F98F8D5F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{961AC982-9F2F-4357-803C-7B7F98F8D5F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{961AC982-9F2F-4357-803C-7B7F98F8D5F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{961AC982-9F2F-4357-803C-7B7F98F8D5F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

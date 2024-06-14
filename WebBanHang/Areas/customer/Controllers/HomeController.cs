@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using WebBanHang.Models;
+using WebBanHang.Helpers;
 
 namespace WebBanHang.Controllers
 {
@@ -25,6 +26,8 @@ namespace WebBanHang.Controllers
         {
             var productlist = _db.Products.ToList();
             return View(productlist);
+
+          
         }
 
         public IActionResult Privacy()
